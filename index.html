@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html ng-app="pptpApp">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>angular</title>
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
+
+	<link href="bower_components/angular-material/angular-material.css" rel="stylesheet" />
+
+	<script type="text/javascript" src="js/app.js"></script>
+
+	<script type="text/javascript" src="js/controller/controller.js"></script>
+
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.min.js"></script>
+</head>
+
+<body ng-controller="baseController" ng-cloak>
+
+
+	<div id="titleBody">
+		<h2>Cédula de Grupos</h2>
+		<h3>Estrategia de Inclusión Productiva</h3>
+	</div>
+	<br>
+	<br>
+	<div>
+		<div class="tituloSeccionMain">
+			<span>Datos del levantamiento</span>
+		</div>
+		<h1> {{mensajeResultado}} </h1>
+		<form id="dataGroup">
+
+
+			<div class=""> <label>Tipo de Grupo</label> 
+			<select class="form-control" ng-model="survey" ng-options="tipo.text for tipo in tipoGrupo">
+			</select>
+			<md-content class="">
+				<label>Fecha de levantamiento:</label>
+				<md-datepicker ng-model="myDate" md-placeholder="Fecha de levantamiento" md-min-date="minDate" md-max-date="maxDate"></md-datepicker>
+
+
+
+				<md-input-container>
+					<label>Estado</label>
+					<md-select ng-model="selectedState">
+						<md-option><em>None</em></md-option>
+						<md-option ng-repeat="estado in allStates" ng-value="estado.id">
+							{{estado.text}}
+						</md-option>
+					</md-select>
+				</md-input-container>
+
+
+
+
+
+
+			</md-content>
+
+			</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			<div class="contentDiv">
+
+
+
+
+
+				<table>
+					<tbody>
+						<tr>
+							<td> FECHA DE LEVANTAMIENTO:</td>
+							<td><input type="text" ng-model="group['fecha']" id="fecLevantamiento"></td>
+						</tr>
+
+						
+						<tr>
+							<td>CLAVE PROMOTOR:</td>
+							<td><input type="text" ng-model="group['clavepromotor']"  id="clavepromotor"></td>
+						</tr>
+
+						<tr>
+							<td>NOMBRE:</td>
+							<td><textarea ng-model="group['nombreGrupo']" id="nombreGrupo"></textarea></td>
+						</tr>
+						<tr>
+							<td>CLAVE GRUPO</td>
+							<td><input type="text" id="claveGrupo"></td>
+						</tr>
+						<tr class="seccionGrupoTerritorial">
+							<td>PROPOSITO:</td>
+							<td><textarea id="propositoGrupoTerritorial"></textarea></td>
+						</tr>
+						<tr class="seccionGrupoTerritorial">
+							<td>INTERES PRODUCTIVO:</td>
+							<td><textarea id="interesGrupoTerritorial"></textarea></td>
+						</tr>
+						<tr>
+							<td>VERIFICADOR:</td>
+							<td><input type="text" id="clavepromotorVerificador"></td>
+						</tr>
+						<tr>
+							<td>TESTIGO 1:</td>
+							<td><textarea id="testigo1"></textarea></td>
+						</tr>
+						<tr>
+							<td>TESTIGO 2:</td>
+							<td><textarea id="testigo2"></textarea></td>
+						</tr>
+						<tr>
+							<td>TESTIGO 3:</td>
+							<td><textarea id="testigo3"></textarea></td>
+						</tr>						
+						<button ng-click="saveGroup()">GUARDAR</button>
+					</tbody>	
+				</table>
+			</div>
+			<div class="tituloSeccionMain">
+				<span>Relación de Participantes</span>
+			</div>		
+			<div class="contentDiv">
+				<div>
+					<span>
+						<img id="agregaNuevoParticipante" src="">	
+					</span>
+				</div>
+				<div>
+					<table>
+						<thead>
+							<tr>
+								<th>FOLIO_PTP</th>
+								<th>NOMBRE PARTICIPANTE</th>
+								<th>ROL</th>									
+							</tr>
+						</thead>
+						<tbody id="cuerpoRelacionParticipantes"></tbody>
+					</table>
+				</div>
+			</div>
+		</form>
+	</div>
+
+	
+	<script src="bower_components/angular-animate/angular-animate.js" type="text/javascript" ></script>
+  	<script src="bower_components/angular-aria/angular-aria.js" type="text/javascript" ></script>
+  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular-messages.min.js"></script>
+  	<script src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/t-114/svg-assets-cache.js"></script>
+  	<script src="bower_components/angular-material/angular-material.js" type="text/javascript" ></script>  
+
+</body>
+</html>
